@@ -269,8 +269,34 @@ export default function App() {
 
     if (lower.includes("cv")) {
       return isFrench
-        ? `J'ai trouvé ${selectedJob.gaps.length} améliorations CV prioritaires pour cette offre : ${selectedJob.gaps.join(", ")}.`
-        : `I found ${selectedJob.gaps.length} priority CV improvements for this role: ${selectedJob.gaps.join(", ")}.`;
+        ? `Voici ma revue CV pour ${selectedJob.title} chez ${selectedJob.company} :
+
+Score de préparation CV : ${Math.round(selectedJob.score * 10) - 8}%
+
+Points forts à garder :
+- ${selectedJob.strengths.join("\n- ")}
+
+Améliorations recommandées :
+- ${selectedJob.gaps.join("\n- ")}
+
+Suggestion de résumé CV :
+"Profil bilingue anglais/français avec expérience en qualité des données, reporting opérationnel et communication avec les parties prenantes. Capable de transformer des données complexes en informations claires et exploitables."
+
+Avant candidature, je recommande d'adapter le CV avec 3 à 5 mots-clés repris directement de l'offre.`
+        : `Here is my CV review for ${selectedJob.title} at ${selectedJob.company}:
+
+CV readiness score: ${Math.round(selectedJob.score * 10) - 8}%
+
+Strengths to keep:
+- ${selectedJob.strengths.join("\n- ")}
+
+Recommended improvements:
+- ${selectedJob.gaps.join("\n- ")}
+
+Suggested CV profile line:
+"Bilingual English/French profile with experience in data quality, operational reporting and stakeholder communication. Able to turn complex data into clear, useful insight."
+
+Before applying, I recommend tailoring the CV with 3 to 5 keywords taken directly from the job description.`;
     }
 
     if (lower.includes("gmail") || lower.includes("send") || lower.includes("apply") || lower.includes("candidature")) {
@@ -661,4 +687,3 @@ export default function App() {
     </main>
   );
 }
-
